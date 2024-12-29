@@ -37,7 +37,6 @@ const router = express.Router();
  *         description: Error en los datos proporcionados
  */
 router.post('/tasks', [check('title', 'Title is required').not().isEmpty()], createTask);
-
 /**
  * @swagger
  * /api/tasks:
@@ -67,7 +66,6 @@ router.post('/tasks', [check('title', 'Title is required').not().isEmpty()], cre
  *                     format: date-time
  */
 router.get('/tasks', getTasks);
-
 /**
  * @swagger
  * /api/tasks/{id}:
@@ -88,7 +86,6 @@ router.get('/tasks', getTasks);
  *         description: Tarea no encontrada
  */
 router.get('/tasks/:id', getTaskById);
-
 /**
  * @swagger
  * /api/tasks/{id}:
@@ -122,7 +119,6 @@ router.get('/tasks/:id', getTaskById);
  *         description: Tarea no encontrada
  */
 router.put('/tasks/:id', updateTask);
-
 /**
  * @swagger
  * /api/tasks/{id}:
