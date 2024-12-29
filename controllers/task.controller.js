@@ -17,7 +17,6 @@ const createTask = async (req, res) => {
 		res.status(500).json({ message: 'Server error', error });
 	}
 };
-
 const getTasks = async (req, res) => {
 	try {
 		const { completed } = req.query;

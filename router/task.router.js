@@ -35,7 +35,14 @@ const router = express.Router();
  *       400:
  *         description: Error en los datos proporcionados
  */
-router.post('/tasks', [check('title', 'Title is required').not().isEmpty()], createTask);
+router.post(
+	'/tasks',
+	[
+		body('title').notEmpty().withMessage('Title is required'),
+		body('description').optional().isString(),
+	],
+	createTask
+);
 /**
  * @swagger
  * /api/tasks:
