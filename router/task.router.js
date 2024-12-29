@@ -1,6 +1,5 @@
 const express = require('express');
 const { check } = require('express-validator');
-
 const {
 	createTask,
 	getTasks,
@@ -42,10 +41,18 @@ router.post('/tasks', [check('title', 'Title is required').not().isEmpty()], cre
  * /api/tasks:
  *   get:
  *     summary: Obtener todas las tareas
- *     description: Obtiene una lista de todas las tareas.
+ *     description: Obtiene una lista de todas las tareas. Puedes filtrar por estado con el parámetro 'status'.
+ *     parameters:
+ *       - in: query
+ *         name: status
+ *         required: false
+ *         description: Filtra las tareas por estado. Puede ser 'completada' o 'pendiente'.
+ *         schema:
+ *           type: string
+ *           enum: [completada, pendiente]
  *     responses:
  *       200:
- *         description: Lista de tareas obtenida correctamente.
+ *         description: Lista de tareas obtenida correctamente
  *         content:
  *           application/json:
  *             schema:
